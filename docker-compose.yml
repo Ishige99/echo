@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: echo-mysql
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+      TZ: ${TZ}
+    ports:
+      - ${DB_PORT}:3307
+    volumes:
+      - db-store:/var/lib/mysql
+      - ./mysql/my.conf:/etc/mysql/conf.d/my.conf
+
+volumes:
+  db-store:
