@@ -2,9 +2,26 @@
 
 ## 開発環境
 
+- MacOS Monterey v12.2.1 M1
 - Goland
 - go version go1.20 darwin/arm64
-- MacOS Monterey v12.2.1
+- Docker version 20.10.22
+- Docker Compose version v2.15.1
+
+## packages
+
+### Gorilla
+
+https://github.com/gorilla/mux  
+  
+特定のメソッドでの処理を記述したいため使用しました。  
+Gorillaを使用すれば、`main.go`の`HandleFunc`をより簡潔に書けます。  
+
+## Local Build
+
+```bash
+$ docker-compose up -d
+```
 
 ## DB(MySQL)
 
