@@ -5,8 +5,15 @@
 - MacOS Monterey v12.2.1 M1
 - Goland
 - go version go1.20 darwin/arm64
+
+## Local Build
+
 - Docker version 20.10.22
 - Docker Compose version v2.15.1
+
+```bash
+$ docker-compose up -d
+```
 
 ## packages
 
@@ -49,5 +56,6 @@ $ docker-compose up -d
 | id | BIGINT | NOT NULL, AUTO_INCREMENT, PRIMARY KEY |
 | user_id | BIGINT | NOT NULL |
 | content | TEXT | NOT NULL |
+| is_delete | BOOLEAN | NOT NULL |
 | created_at | TIMESTAMP | NOT NULL, CURRENT_TIMESTAMP |
 | updated_at | TIMESTAMP | NOT NULL, CURRENT_TIMESTAMP |

@@ -1,3 +1,0 @@
-DROP DATABASE IF EXISTS echo_local;
-CREATE DATABASE echo_local DEFAULT CHARSET utf8mb;
-USE echo_local;
