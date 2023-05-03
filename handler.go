@@ -14,15 +14,27 @@ func TestHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetIndexViewHandler(w http.ResponseWriter, r *http.Request) {
-	log.Println("hit /")
-
-	indexResponse, err := template.ParseFiles("./view/index.html")
+	indexPageResponse, err := template.ParseFiles("./view/index.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	err = indexResponse.Execute(w, nil) // index.htmlの実行
+	err = indexPageResponse.Execute(w, nil) // index.htmlの実行
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
+func GetUserViewHandler(w http.ResponseWriter, r *http.Request) {
+	userPageResponse, err := template.ParseFiles("./view/user.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	err = userPageResponse.Execute(w, nil)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
