@@ -10,9 +10,15 @@
 
 - Docker version 20.10.22
 - Docker Compose version v2.15.1
+- MySQL v8.0.33
 
 ```bash
 $ docker-compose up -d
+
+// Operate DB
+$ docker-compose exec mysql bash
+bash-4.4# mysql -u root -p
+> Enter password: root
 ```
 
 ## packages
@@ -22,17 +28,11 @@ $ docker-compose up -d
 https://github.com/gorilla/mux  
   
 特定のメソッドでの処理を記述したいため使用しました。  
-Gorillaを使用すれば、`main.go`の`HandleFunc`をより簡潔に書けます。  
+Gorillaを使用すれば、`main.go`の`HandleFunc`をより簡潔に書けます。
 
-## Local Build
+## DB Scheme
 
-```bash
-$ docker-compose up -d
-```
-
-## DB(MySQL)
-
-### users
+### user
 
 ユーザー情報を保存するテーブル
 
@@ -40,14 +40,12 @@ $ docker-compose up -d
 | -- | -- | -- |
 | id | BIGINT | NOT NULL, PRIMARY KEY, AUTO_INCREMENT |
 | name | VARCHAR | NOT NULL |
-| birth_year | INT | NOT NULL |
-| gender | TINYINT | NOT NULL |
 | avatar | VARCHAR | NOT NULL |
 | is_delete | BOOLEAN | NOT NULL |
 | created_at | TIMESTAMP | NOT NULL, CURRENT_TIMESTAMP |
 | updated_at | TIMESTAMP | NOT NULL, CURRENT_TIMESTAMP |
 
-### posts
+### post
 
 ユーザーの投稿を保存するテーブル
 
