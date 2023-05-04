@@ -40,3 +40,17 @@ func GetUserViewHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 }
+
+func GetPostViewHandler(w http.ResponseWriter, r *http.Request) {
+	postPageResponse, err := template.ParseFiles("./view/post.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	err = postPageResponse.Execute(w, nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}

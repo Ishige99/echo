@@ -13,6 +13,7 @@ func main() {
 
 	r.HandleFunc("/", GetIndexViewHandler).Methods(http.MethodGet)    // Home
 	r.HandleFunc("/user", GetUserViewHandler).Methods(http.MethodGet) // User details page
+	r.HandleFunc("/post", GetPostViewHandler).Methods(http.MethodGet) // Post page
 
 	log.Println("Server start at port 8080...")
 	log.Fatal(http.ListenAndServe(":8080", r)) // Start server
