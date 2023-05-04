@@ -14,7 +14,7 @@ CREATE TABLE `user` (
 
 -- 2. postsテーブル作成
 
-CREATE TABLE `post` (
+CREATE TABLE `log` (
     `id` BIGINT AUTO_INCREMENT NOT NULL,
     `user_id` BIGINT NOT NULL,
     `content` TEXT NOT NULL,

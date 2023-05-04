@@ -41,14 +41,14 @@ func GetUserViewHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func GetPostViewHandler(w http.ResponseWriter, r *http.Request) {
-	postPageResponse, err := template.ParseFiles("./public/post.html")
+func GetLogPostViewHandler(w http.ResponseWriter, r *http.Request) {
+	logPostPageResponse, err := template.ParseFiles("./public/log_post.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	err = postPageResponse.Execute(w, nil)
+	err = logPostPageResponse.Execute(w, nil)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

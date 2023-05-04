@@ -11,9 +11,9 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/hello", TestHandler).Methods(http.MethodGet) // Hello World!
 
-	r.HandleFunc("/", GetIndexViewHandler).Methods(http.MethodGet)    // Home
-	r.HandleFunc("/user", GetUserViewHandler).Methods(http.MethodGet) // User details page
-	r.HandleFunc("/post", GetPostViewHandler).Methods(http.MethodGet) // Post page
+	r.HandleFunc("/", GetIndexViewHandler).Methods(http.MethodGet)      // Home
+	r.HandleFunc("/user", GetUserViewHandler).Methods(http.MethodGet)   // User details page
+	r.HandleFunc("/log", GetLogPostViewHandler).Methods(http.MethodGet) // Log post page
 
 	log.Println("Server start at port 8080...")
 	log.Fatal(http.ListenAndServe(":8080", r)) // Start server
