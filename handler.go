@@ -14,7 +14,7 @@ func TestHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetIndexViewHandler(w http.ResponseWriter, r *http.Request) {
-	indexPageResponse, err := template.ParseFiles("./view/index.html")
+	indexPageResponse, err := template.ParseFiles("./public/index.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -28,7 +28,7 @@ func GetIndexViewHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetUserViewHandler(w http.ResponseWriter, r *http.Request) {
-	userPageResponse, err := template.ParseFiles("./view/user.html")
+	userPageResponse, err := template.ParseFiles("./public/user.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -42,7 +42,7 @@ func GetUserViewHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetPostViewHandler(w http.ResponseWriter, r *http.Request) {
-	postPageResponse, err := template.ParseFiles("./view/post.html")
+	postPageResponse, err := template.ParseFiles("./public/post.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
