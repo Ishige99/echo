@@ -11,7 +11,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/hello", TestHandler).Methods(http.MethodGet) // Hello World!
 
-	r.HandleFunc("/", GetIndexViewHandler).Methods(http.MethodGet)      // Home
+	r.HandleFunc("/", GetHomeViewHandler).Methods(http.MethodGet)       // Home
 	r.HandleFunc("/user", GetUserViewHandler).Methods(http.MethodGet)   // User details page
 	r.HandleFunc("/log", GetLogPostViewHandler).Methods(http.MethodGet) // Log post page
 

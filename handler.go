@@ -13,14 +13,14 @@ func TestHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write(response)
 }
 
-func GetIndexViewHandler(w http.ResponseWriter, r *http.Request) {
-	indexPageResponse, err := template.ParseFiles("./public/index.html")
+func GetHomeViewHandler(w http.ResponseWriter, r *http.Request) {
+	homePageResponse, err := template.ParseFiles("./public/home.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	err = indexPageResponse.Execute(w, nil) // index.htmlの実行
+	err = homePageResponse.Execute(w, nil) // index.htmlの実行
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
