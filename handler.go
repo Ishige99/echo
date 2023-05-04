@@ -41,16 +41,21 @@ func GetUserViewHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func GetLogPostViewHandler(w http.ResponseWriter, r *http.Request) {
-	logPostPageResponse, err := template.ParseFiles("./public/log_post.html")
+func GetLogFormViewHandler(w http.ResponseWriter, r *http.Request) {
+	logFormPageResponse, err := template.ParseFiles("./public/log_form.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	err = logPostPageResponse.Execute(w, nil)
+	err = logFormPageResponse.Execute(w, nil)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+}
+
+func PostLogHandler(w http.ResponseWriter, r *http.Request) {
+	var printResponse = []byte("form post done.")
+	w.Write(printResponse)
 }
